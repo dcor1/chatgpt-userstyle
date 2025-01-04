@@ -1,0 +1,80 @@
+/* ==UserStyle==
+@name           ChatGPT reduce font size and margins
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    Reduce font size and margins on ChatGPT web interface.
+@author         Me
+==/UserStyle== */
+
+@-moz-document domain("chatgpt.com") {
+    /* Make the text span the full width of the screen. */
+    .md\:max-w-3xl {
+        max-width: 100% !important;
+        margin-left: 3px;
+        padding-right: 20px;
+    }
+    /* Font size of the main text. */
+    .prose {
+       font-size: 1em !important;
+    }
+    /* Reduce margin for equations. */
+    .katex-display {
+        margin: 0.7em !important;
+    }
+    /* Reduce margin from <hr> line separators. */
+    .prose :where(hr):not(:where([class~=not-prose] *)) {
+        margin-bottom: 0.5em;
+        margin-top: 0.5em;
+    }
+    /* Adjust the format of the titles. */
+    .markdown h2 {
+        font-size: 1.2em;
+        margin-bottom: 0.4rem;
+        margin-top: 0.4rem;
+    }
+    /* Hide "ChatGPT can make mistakes" warning. */
+    .min-h-4 > div {
+        display: none;
+    }
+    /* Hide share button. */
+    .text-token-text-primary.btn-secondary.relative.btn {
+        display: none;
+    }
+    /* Hide help button. */
+    .text-token-text-secondary.text-xs.border-token-border-light.border.rounded-full.justify-center.items-center.w-6.h-6.flex {
+        display: none;
+    }
+    /* Desaturate account icon. */
+    .focus-visible\:outline-0.focus-visible\:bg-token-main-surface-secondary.hover\:bg-token-main-surface-secondary.rounded-full.justify-center.items-center.w-10.h-10.flex {
+        filter: grayscale(100%) brightness(130%);
+    }
+    .justify-between.items-center.h-\[44px\].flex {
+        filter: opacity(65%) !important;
+    }
+    /* Remove "Is this conversation helpful so far" UI element. */
+    .text-center > .mx-auto > div {
+        display: none;
+    }
+    /* Align user questions to the left. */
+    .flex.w-full.flex-col.gap-1.empty\:hidden.rtl\:items-start {
+        align-items: flex-start;
+        padding-left: 52px;
+    }
+    /* Reduce the margin between conversation threads on the left sidebar. */
+    a.flex.items-center.gap-2.p-2 {
+        padding: 3px;
+    }
+    .no-draggable.group.rounded-lg.active\:opacity-90.bg-\[var\(--item-background-color\)\].h-9.text-sm.relative {
+        height: 26px;
+    }
+    .relative.mt-5.first\:mt-0.last\:mb-5 {
+        margin-top: 0px;
+    }
+    .flex.flex-col.gap-2.text-token-text-primary.text-sm.false.mt-5.pb-2 {
+        margin-top: 0px;
+    }
+    a.no-draggable.group.rounded-lg.active\:opacity-90.bg-\[var\(--item-background-color\)\].h-9.text-sm.flex.items-center.gap-2\.5.p-2.screen-arch\:py-\[7px\] {
+        padding: 0px;
+        height: 1.5rem;
+    }
+}
